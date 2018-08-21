@@ -1,0 +1,37 @@
+.root {
+  list-style:none;
+  display: inline-block;
+  margin: 20px 0;
+  padding: 0;
+}
+
+.common {
+  display: inline-block;
+  padding: 10px 20px;
+  cursor:pointer;
+  transition:0.3s;
+  &:hover {
+    background-color:#beecea ;
+  }
+}
+
+.normal {
+  display: inline-block;
+  padding: 10px 20px;
+  cursor:pointer;
+  transition:0.3s;
+  background-color:#eee;
+  color:#7B8585;
+}
+
+.activeTab {
+  display: inline-block;
+  padding: 10px 20px;
+  cursor:pointer;
+  transition:0.3s;
+  color:#fff;
+  background-color:#41c7c2;
+  &:hover {
+    background-color:#41c7c2;
+  }
+}
