@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import '../components/Comment/index.scss'
 
+import { Card } from '../components'
+
 import CommentInput from '../components/Comment/CommentInput'
 import CommentList from '../components/Comment/CommentList'
 
-class Comment extends Component {
+class CommentPage extends Component {
   constructor(props) {
     super(props);
+    // 当某个状态被多个组件依赖或者影响时，应把状态提升到这些组件的最近公共父组件中去管理，用props传递数据或者函数来管理这种依赖的行为。
     this.state = {
       comments: []
     };
@@ -34,12 +37,12 @@ class Comment extends Component {
 
   render() {
     return (
-      <div className="comment-wrapper">
+      <Card>
         <CommentInput onSubmit={this.handleSubmitComment} />
         <CommentList comments={this.state.comments}/>
-      </div>
+      </Card>
     )
   }
 }
 
-export default Comment
+export default CommentPage

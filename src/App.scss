@@ -1,3 +1,12 @@
+.card-box {
+  width: 600px;
+  margin: 10px 0;
+  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid #f1f1f1;
+  padding: 20px;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -14,8 +23,11 @@ ul {
   }
 }
 
+
+
 .cycle {
   > p {
     margin: 30px 0;
   }
 }
+

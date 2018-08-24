@@ -18,17 +18,23 @@ class Clock extends Component {
 
   }
 
+  componentWillMount() {
+    this.timer = setInterval(() => {
+      this.tick();
+    }, 1000);
+  }
+
+
+  // React中基本不需要和DOM打交道。其提供了一系列的on*方法帮助我们进行事件监听。但不能完全满足所有DOM操作需求。
+  // React提供了ref属性来帮助获取已经挂载的元素的DOM节点。
+  // ref属性值是一个函数，
   componentDidMount() {
     // 当组件加载到页面上之后(mounted)
     // 1. 可以通过react-dom提供的findDOMNode()方法拿到组件对应的DOM元素。
     // 2. 也可以通过在要引用的DOM元素上设置一个ref属性指定名称，通过this.refs.name来访问对应DOM元素。
     const el = findDOMNode(this);
     console.log(el);
-    console.log(this.refs.theRef);
-
-    this.timer = setInterval(() => {
-      this.tick();
-    }, 1000);
+    console.log(this.refs.clock);
   }
 
   componentWillUnmount() {
@@ -83,8 +89,8 @@ class Clock extends Component {
     }
 
     return (
-      <div ref="theRef">
-        <p>It is {this.state.date.toLocaleDateString()}.</p>
+      <div ref="clock">
+        <p>It is {this.state.date.toLocaleDateString()} {this.state.date.toLocaleTimeString()}.</p>
         <hr /><br />
         {/*<button onClick={(e) => {this.handleClick(e)}}>Click me</button>*/}
         <button onClick={this.handleClick}>Click me</button>

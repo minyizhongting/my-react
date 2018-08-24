@@ -1,0 +1,5 @@
+export { default as HomePage } from './HomePage'
+export { default as CommentPage } from './CommentPage'
+export { default as ClockPage } from './ClockPage'
+export { default as GamePage } from './GamePage'
+export { default as CyclePage } from './CyclePage'

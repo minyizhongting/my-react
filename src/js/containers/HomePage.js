@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 
-// import Counter from '../components/Counter/index'
-// import Tab from '../components/Tab/index'
+// import Card from '../components/Card/index'
 // import CommonTitle from '../components/CommonTitle/index'
+// import Tab from '../components/Tab/index'
 
 import {
+  Card,
   CommonTitle,
   Tab
 } from '../components'
 
-class App extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,13 +20,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="box">
+      <Card>
         <CommonTitle title="Tab实例" />
         <Tab items={this.state.items} />
-      </div>
+      </Card>
     )
   }
 }
 
 
-export default App
+export default Home
