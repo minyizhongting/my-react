@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { IndexLink, Link } from 'react-router'
-import './App.css'
+import './App.scss'
 
 // IndexLink会使用路径的精确匹配，链接到根路由/
 // 使用Link组件的onlyActiveOnIndex属性，也能达到同样效果
@@ -15,13 +15,13 @@ export default class App extends Component {
             <IndexLink to="/" activeClassName="active">Home</IndexLink>
           </li>
           <li>
+            <Link to="/comment" activeClassName="active">Comment</Link>
+          </li>
+          <li>
             <Link to="/clock" activeClassName="active">Clock</Link>
           </li>
           <li>
             <Link to="/game" activeClassName="active">Game</Link>
-          </li>
-          <li>
-            <Link to="/numbers" activeClassName="active">Numbers</Link>
           </li>
           <li>
             <Link to="/cycle/123" activeClassName="active">Cycle</Link>

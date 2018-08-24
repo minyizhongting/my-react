@@ -1,0 +1,55 @@
+.comment-wrapper {
+  width: 500px;
+  margin: 10px 0;
+  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid #f1f1f1;
+  padding: 20px;
+}
+
+.comment {
+  &-input {
+    margin-bottom: 50px;
+    border: 1px solid #f1f1f1;
+    padding: 20px;
+  }
+  &-field {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-bottom: 30px;
+    span {
+      display: inline-block;
+      width: 100px;
+    }
+    input, textarea{
+      width: 350px;
+    }
+    textarea {
+      height: 100px;
+      resize: none;
+    }
+    &-btn {
+      button {
+        width: 80px;
+        height: 32px;
+        background: #2b99ff;
+        border: none;
+        color: #fff;
+        font-size: 15px;
+        cursor: pointer;
+      }
+    }
+  }
+  &-list {
+    border: 1px solid #f1f1f1;
+    padding: 20px;
+    p {
+      background: #f5f5f5;
+      line-height: 30px;
+      text-align: center;
+    }
+    .item {
+      padding: 10px 0;
+    }
+  }
+}

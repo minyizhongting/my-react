@@ -17,14 +17,22 @@ class Increment extends Component {
   }
 
   render() {
+    const numbers = this.props.route.numbers;
+    const listItems = numbers.map((item,index) => {
+      return (
+        <li key={index}>{item}</li>
+      )
+    })
     return (
-      <div>
+      <div className="cycle">
         {/* 来自于路径/cycle/123 */}
         <p>Params: {this.props.params.id}</p>
         {/* 来自于路径/cycle/123?abc=hello */}
         <p>query: abc = {this.props.location.query.abc}</p>
         <button onClick={this.setNumber}>INCREMENT</button>
         <Content myNumber={this.state.data} />
+        <p>route numbers: </p>
+        <ul>{listItems}</ul>
       </div>
     )
   }
