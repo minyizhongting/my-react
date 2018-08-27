@@ -43,13 +43,21 @@
   &-list {
     border: 1px solid #f1f1f1;
     padding: 20px;
-    p {
+    > p {
       background: #f5f5f5;
       line-height: 30px;
       text-align: center;
     }
     .item {
-      padding: 10px 0;
+      padding: 5px 0;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+      button {
+        display: inline-block;
+        margin-left: 20px;
+      }
     }
   }
 }

@@ -7,9 +7,19 @@ import { Router, hashHistory } from 'react-router'
 
 import routes from './routes'
 
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+
+import commentReducer from './js/reducers/comments'
+
+const store = createStore(commentReducer);
+
 render(
-  <div className="app">
-    <Router routes={routes} history={hashHistory} />
-  </div>,
+  <Provider store={store}>
+    <div className="app">
+      <Router routes={routes} history={hashHistory} />
+    </div>
+  </Provider>,
   document.getElementById('app')
 );
+

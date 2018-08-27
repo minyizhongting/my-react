@@ -17,18 +17,21 @@ class Increment extends Component {
   }
 
   render() {
-    const numbers = this.props.numbers;
+    // 获取route传来的props
+    const numbers = this.props.route.numbers;
     const listItems = numbers.map((item,index) => {
       return (
         <li key={index}>{item}</li>
       )
-    })
+    });
     return (
       <div className="cycle">
         {/* 来自于路径/cycle/123 */}
-        <p>Params: {this.props.id}</p>
+        {/* 获取route中的:id */}
+        <p>Params: {this.props.params.id}</p>
         {/* 来自于路径/cycle/123?abc=hello */}
-        <p>query: abc = {this.props.query.abc}</p>
+        {/* 获取route中的query */}
+        <p>query: abc = {this.props.location.query.abc}</p>
         <button onClick={this.setNumber}>INCREMENT</button>
         <Content myNumber={this.state.data} />
         <p>route numbers: </p>
@@ -80,11 +83,10 @@ class Content extends Component {
     console.log('Component will update!');
   }
 
-  // 组件重新渲染并且把更改变更新到真实DOM之后调用
+  // 组件重新渲染并且把更改变更到真实的DOM之后调用
   componentDidUpdate(prevProps, prevState) {
     console.log('Component did update!');
   }
-
 
   render() {
     return (

@@ -1,16 +1,13 @@
 import React, { Component } from 'react'
 
-// import Card from '../components/Card/index'
-// import CommonTitle from '../components/CommonTitle/index'
-// import Tab from '../components/Tab/index'
-
 import {
   Card,
   CommonTitle,
   Tab
-} from '../components'
+} from '../index'
 
-class Home extends Component {
+
+class HomePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,4 +26,4 @@ class Home extends Component {
 }
 
 
-export default Home
+export default HomePage

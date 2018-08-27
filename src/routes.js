@@ -2,13 +2,12 @@ import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 
 import App from './App'
-import {
-  HomePage,
-  CommentPage,
-  ClockPage,
-  GamePage,
-  CyclePage
-} from './js/containers'
+
+import HomePage from './js/components/HomePage'
+import CommentPage from './js/containers/CommentPage'
+import ClockPage from './js/components/ClockPage'
+import GamePage from './js/components/GamePage'
+import CyclePage from './js/components/CyclePage'
 
 // 注意，IndexRoute组件没有path属性，IndexRoute只有当父路由的所有其他子路由都没有激活时，才是父路由的this.props.children，并显示出来。
 

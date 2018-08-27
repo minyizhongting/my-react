@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { findDOMNode } from 'react-dom'
 
+import Card from '../Card'
+
 class Clock extends Component {
   constructor(props) {
     // 构造函数是唯一能够初始化this.state的地方，其他更新应当使用setState()
@@ -89,16 +91,18 @@ class Clock extends Component {
     }
 
     return (
-      <div ref="clock">
-        <p>It is {this.state.date.toLocaleDateString()} {this.state.date.toLocaleTimeString()}.</p>
-        <hr /><br />
-        {/*<button onClick={(e) => {this.handleClick(e)}}>Click me</button>*/}
-        <button onClick={this.handleClick}>Click me</button>
-        <p>{this.state.isToggleOn ? 'ON': 'OFF'}</p>
-        <hr /><br />
-        <Greeting isLoggedIn={isLoggedIn} />
-        {button}
-      </div>
+      <Card>
+        <div ref="clock">
+          <p>It is {this.state.date.toLocaleDateString()} {this.state.date.toLocaleTimeString()}.</p>
+          <hr /><br />
+          {/*<button onClick={(e) => {this.handleClick(e)}}>Click me</button>*/}
+          <button onClick={this.handleClick}>Click me</button>
+          <p>{this.state.isToggleOn ? 'ON': 'OFF'}</p>
+          <hr /><br />
+          <Greeting isLoggedIn={isLoggedIn} />
+          {button}
+        </div>
+      </Card>
     )
   }
 }

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import './index.css';
 
+import Card from '../Card'
+
 // class Square extends Component {
 //   render() {
 //     return (
@@ -109,17 +111,18 @@ class Game extends Component {
       status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
-
     return (
-      <div className="game">
-        <div className="game-board">
-          <Board squares={current.squares} onClick={(i) => this.handleClick(i)} />
+      <Card>
+        <div className="game">
+          <div className="game-board">
+            <Board squares={current.squares} onClick={(i) => this.handleClick(i)} />
+          </div>
+          <div className="game-info">
+            <div>{status}</div>
+            <div>{moves}</div>
+          </div>
         </div>
-        <div className="game-info">
-          <div>{status}</div>
-          <div>{moves}</div>
-        </div>
-      </div>
+      </Card>
     )
   }
 }

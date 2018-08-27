@@ -1,10 +1,9 @@
 import React from 'react'
-import './index.scss'
 
 const CommonTitle = ({title}) => {
   return (
-    <div className="common-title">
-      <p>{title}</p>
+    <div style={{margin: '20px 0'}} className="common-title">
+      <p style={{color: '#ccc', fontSize: '24px'}}>{title}</p>
       <hr />
     </div>
   )
