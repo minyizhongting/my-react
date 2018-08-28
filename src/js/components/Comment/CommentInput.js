@@ -9,6 +9,7 @@ class CommentInput extends Component {
     onUserNameInputBlur: PropTypes.func
   }
 
+  // 不传时可以有默认值
   static defaultProps = {
     username: ''
   }
@@ -37,7 +38,6 @@ class CommentInput extends Component {
   }
 
   handleUsernameBlur(e) {
-    // this._saveUsername(e.target.value);
     if (this.props.onUserNameInputBlur) {
       this.props.onUserNameInputBlur(e.target.value);
     }

@@ -5,6 +5,7 @@ import CommentInput from '../components/Comment/CommentInput'
 import { addComment} from "../reducers/comments"
 
 class CommentInputContainer extends Component {
+  // 验证props的参数类型，若类型不匹配浏览器就会报错，方便debug
   static propTypes = {
     comments: PropTypes.array,
     onSubmit: PropTypes.func
@@ -40,17 +41,17 @@ class CommentInputContainer extends Component {
 
   handleSubmitComment (comment) {
     // 评论数据的验证
-    if (!comment) return
-    if (!comment.username) return alert('请输入用户名')
-    if (!comment.content) return alert('请输入评论内容')
+    if (!comment) return;
+    if (!comment.username) return alert('请输入用户名');
+    if (!comment.content) return alert('请输入评论内容');
     // 新增评论保存到 LocalStorage 中
-    const { comments } = this.props
-    const newComments = [...comments, comment]
-    localStorage.setItem('comments', JSON.stringify(newComments))
+    const { comments } = this.props;
+    const newComments = [...comments, comment];
+    localStorage.setItem('comments', JSON.stringify(newComments));
     // this.props.onSubmit 是 connect 传进来的
     // 会 dispatch 一个 action 去新增评论
     if (this.props.onSubmit) {
-      this.props.onSubmit(comment)
+      this.props.onSubmit(comment);
     }
   }
 
