@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import CommentList from '../components/Comment/CommentList'
-import { initComments, deleteComment} from "../reducers/comments"
+import { initComments, deleteComment} from "../actions"
 
 class CommentListContainer extends Component {
   static propTypes = {
@@ -45,9 +45,9 @@ class CommentListContainer extends Component {
 // 评论列表从 state.comments 中获取
 const mapStateToProps = (state) => {
   return {
-    comments: state.comments
+    comments: state.comments.comments
   }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -62,7 +62,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(deleteComment(commentIndex))
     }
   }
-}
+};
 
 // 将 CommentListContainer connect 到 store
 // 会把 comments、initComments、onDeleteComment 传给 CommentListContainer

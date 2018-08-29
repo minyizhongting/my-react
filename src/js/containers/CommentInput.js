@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import CommentInput from '../components/Comment/CommentInput'
-import { addComment} from "../reducers/comments"
+import { addComment } from "../actions"
 
 class CommentInputContainer extends Component {
   // 验证props的参数类型，若类型不匹配浏览器就会报错，方便debug
@@ -56,6 +56,7 @@ class CommentInputContainer extends Component {
   }
 
   render () {
+    console.log(this.props);
     return (
       <CommentInput
         username={this.state.username}
@@ -68,9 +69,9 @@ class CommentInputContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    comments: state.comments
+    comments: state.comments.comments
   }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -78,7 +79,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(addComment(comment))
     }
   }
-}
+};
 
 export default connect(
   mapStateToProps,

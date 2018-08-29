@@ -26,6 +26,9 @@ export default class App extends Component {
           <li>
             <Link to="/cycle/123" activeClassName="active">Cycle</Link>
           </li>
+          <li>
+            <Link to="/counter" activeClassName="active">Counter</Link>
+          </li>
         </ul>
         {/* 渲染子组件 */}
         {this.props.children}

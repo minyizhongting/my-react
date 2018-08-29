@@ -26,7 +26,7 @@ class CommentList extends Component {
         {comments.map((comment, i) => {
           return (
             <Comment
-              key={i}
+              key={comment.createdTime}
               index={i}
               comment={comment}
               onDeleteComment={this.handleDeleteComment.bind(this)} />

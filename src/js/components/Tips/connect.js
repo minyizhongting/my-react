@@ -17,6 +17,7 @@ const mapStateToProps = (state) => {
   }
 };
 
+// 改变内部state的唯一方法是dispatch一个action
 // 可以在返回的对象内部定义一些函数，这些函数会用到dispatch来触发特定action
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -65,3 +66,5 @@ export connect = (mapStateToProps, mapDispatchToProps) =>  (WrappedComponent) =>
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(WrappedComponent)
+
+// 容器组件就是使用store.subscribe()从Redux state树中读取部分数据，并通过props来吧这些数据提供给要渲染的组件。
