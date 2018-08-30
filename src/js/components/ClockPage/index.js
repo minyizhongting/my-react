@@ -3,6 +3,8 @@ import { findDOMNode } from 'react-dom'
 
 import Card from '../Card'
 
+import axios from 'axios'
+
 class Clock extends Component {
   constructor(props) {
     // 构造函数是唯一能够初始化this.state的地方，其他更新应当使用setState()
@@ -10,13 +12,16 @@ class Clock extends Component {
     this.state = {
       date: new Date(),
       isToggleOn: true,
-      isLoggedIn: false
+      isLoggedIn: false,
+      name: '',
+      location: ''
     };
 
     // 类的方法默认是不会绑定this的
     this.handleClick = this.handleClick.bind(this);
     this.handleLoginClick = this.handleLoginClick.bind(this);
     this.handleLogoutClick = this.handleLogoutClick.bind(this);
+    this.getUserInfo = this.getUserInfo.bind(this);
 
   }
 
@@ -37,10 +42,26 @@ class Clock extends Component {
     const el = findDOMNode(this);
     console.log(el);
     console.log(this.refs.clock);
+
+    this.getUserInfo();
+
   }
 
   componentWillUnmount() {
     clearInterval(this.timer);
+  }
+
+  getUserInfo() {
+    axios.get('https://api.github.com/users/minyizhongting')
+      .then((res) => {
+        console.log(res);
+        if (res.status == 200) {
+          this.setState({
+            name: res.data.login,
+            location: res.data.location
+          });
+        }
+      });
   }
 
   tick() {
@@ -66,7 +87,6 @@ class Clock extends Component {
   //   console.log('this is', this);
   // }
 
-
   handleLoginClick() {
     this.setState({
       isLoggedIn: true
@@ -78,7 +98,6 @@ class Clock extends Component {
       isLoggedIn: false
     })
   }
-
 
   render() {
 
@@ -94,6 +113,12 @@ class Clock extends Component {
       <Card>
         <div ref="clock">
           <p>It is {this.state.date.toLocaleDateString()} {this.state.date.toLocaleTimeString()}.</p>
+          <hr /><br />
+          <div style={{margin: '50px 0'}}>
+            <h3>github user</h3>
+            <p>name: {this.state.name}</p>
+            <p>location: {this.state.location}</p>
+          </div>
           <hr /><br />
           {/*<button onClick={(e) => {this.handleClick(e)}}>Click me</button>*/}
           <button onClick={this.handleClick}>Click me</button>

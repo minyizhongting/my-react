@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import { IndexLink, Link } from 'react-router'
-import './App.scss'
+import { IndexLink } from 'react-router'
+
+import NavLink from './NavLink'
+import './index.scss'
 
 // IndexLink会使用路径的精确匹配，链接到根路由/
 // 使用Link组件的onlyActiveOnIndex属性，也能达到同样效果
@@ -15,19 +17,20 @@ export default class App extends Component {
             <IndexLink to="/" activeClassName="active">Home</IndexLink>
           </li>
           <li>
-            <Link to="/comment" activeClassName="active">Comment</Link>
+            {/*<Link to="/comment" activeClassName="active">Comment</Link>*/}
+            <NavLink to="/comment">Comment</NavLink>
           </li>
           <li>
-            <Link to="/clock" activeClassName="active">Clock</Link>
+            <NavLink to="/clock">Clock</NavLink>
           </li>
           <li>
-            <Link to="/game" activeClassName="active">Game</Link>
+            <NavLink to="/game">Game</NavLink>
           </li>
           <li>
-            <Link to="/cycle/123" activeClassName="active">Cycle</Link>
+            <NavLink to="/cycle/123">Cycle</NavLink>
           </li>
           <li>
-            <Link to="/counter" activeClassName="active">Counter</Link>
+            <NavLink to="/counter">Counter</NavLink>
           </li>
         </ul>
         {/* 渲染子组件 */}

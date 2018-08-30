@@ -50,45 +50,49 @@ class Content extends Component {
   constructor(props) {
     super(props);
     // 初始化state
+    console.log('%c 初始化调用: constructor()', 'color:green');
   }
 
   // 组件挂载开始之前，即组件调用render方法之前调用
   componentWillMount() {
-    console.log('Component will mount!');
+    console.log('%c 完成首次渲染之前调用: componentWillMount()', 'color:green');
   }
 
   // 组件挂载完成之后，即DOM元素已经插入页面后调用
   componentDidMount() {
-    console.log('Component did mount!');
+    console.log('%c 真实DOM渲染后调用: componentDidMount()', 'color:green');
   }
 
   // 组件对应的DOM元素从页面中删除之前调用
   componentWillUnmount() {
-    console.log('Component will unmount!');
+    console.log('%c 组件销毁前调用: componentWillUnmount()', 'color:green');
   }
 
   // 控制组件是否重新渲染，返回false则组件不会重新渲染
   // 这个生命周期在React性能优化上非常有用
+  // 默认返回true，返回false则阻止render()调用，跳过后续生命周期方法
   shouldComponentUpdate(newProps, newState) {
+    console.log('%c 渲染新的props或state调用: shouldComponentUpdate()', 'color:green');
     return true;
   }
 
   // 组件从父组件接收到新的props之前调用
   componentWillReceiveProps(newProps) {
-    console.log('Component will receive props!');
+    console.log('%c 组件接收到新的props时调用: componentWillReceiveProps()', 'color:green');
   }
 
   // 组件开始重新渲染之前调用
   componentWillUpdate(nextProps, nextState) {
-    console.log('Component will update!');
+    console.log('%c 接收到新的props或state后，进行渲染之前调用: componentWillUpdate()', 'color:green');
   }
 
   // 组件重新渲染并且把更改变更到真实的DOM之后调用
   componentDidUpdate(prevProps, prevState) {
-    console.log('Component did update!');
+    console.log('%c 完成渲染新的props或state后调用: componentDidUpdate()', 'color:green');
   }
 
   render() {
+    console.log('%c 渲染时调用: render()', 'color:green');
     return (
       <div>
         <h3>{this.props.myNumber}</h3>

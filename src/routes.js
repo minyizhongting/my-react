@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 
-import App from './App'
+import App from './js/components/App/index'
 
 import HomePage from './js/components/HomePage'
 import CommentPage from './js/containers/CommentPage'
