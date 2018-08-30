@@ -12,6 +12,7 @@ import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 
 import thunkMiddleware from 'redux-thunk'
+
 import { createLogger } from 'redux-logger'
 
 import reducers from './js/reducers/'
@@ -26,6 +27,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 // redux-thunk中间件能够在action传递给reducer之前进行处理
+// 改造store.dispatch，使其可以接受函数作为参数
 const store = createStore(
   reducers,
   applyMiddleware(...middleware)

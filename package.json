@@ -9,6 +9,8 @@
   "author": "baihe",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
     "babel-runtime": "^6.26.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",

@@ -4,6 +4,7 @@ const webpack = require('webpack');
 module.exports = {
   mode: 'development',
   entry: [
+    'babel-polyfill',
     'react-hot-loader/patch',
     'webpack-hot-middleware/client?reload=true',
     path.resolve(__dirname, 'src/index.js')

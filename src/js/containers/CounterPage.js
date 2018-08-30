@@ -3,14 +3,14 @@ import { connect } from 'react-redux'
 
 import { Card } from '../components'
 import Counter from '../components/Counter'
-import {increment, decrement, getDataAction} from "../actions"
+import {increment, decrement, fetchData } from "../actions"
 
 class CounterPage extends Component {
   constructor(props) {
     super(props);
     this.handleIncrement = this.handleIncrement.bind(this);
     this.handleDecrement = this.handleDecrement.bind(this);
-    this.handleIncrementAsy = this.handleIncrementAsy.bind(this);
+    this.handleFetchData = this.handleFetchData.bind(this);
   }
 
   handleIncrement() {
@@ -25,9 +25,9 @@ class CounterPage extends Component {
     }
   }
 
-  handleIncrementAsy() {
-    if (this.props.onIncrementAsy) {
-      this.props.onIncrementAsy();
+  handleFetchData() {
+    if (this.props.onFetchData) {
+      this.props.onFetchData();
     }
   }
 
@@ -38,7 +38,7 @@ class CounterPage extends Component {
           counter={this.props.counter}
           onIncrement={this.handleIncrement}
           onDecrement={this.handleDecrement}
-          onIncrementAsy={this.handleIncrementAsy}
+          onFetchData={this.handleFetchData}
         />
       </Card>
     )
@@ -59,8 +59,8 @@ const mapDispatchToProps = (dispatch) => {
     onDecrement: () => {
       dispatch(decrement());
     },
-    onIncrementAsy: () => {
-      dispatch(getDataAction());
+    onFetchData: () => {
+      dispatch(fetchData());
     }
   }
 };

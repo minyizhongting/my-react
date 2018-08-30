@@ -46,8 +46,8 @@ export connect = (mapStateToProps, mapDispatchToProps) =>  (WrappedComponent) =>
 
     _updateProps() {
       const { store } = this.context;
-      let stateProps = mapStateToProps ? mapStateToProps(store.getState()) : {};
-      let dispatchProps = mapDispatchToProps ? mapDispatchToProps(store.dispatch) : {};
+      let stateProps = mapStateToProps ? mapStateToProps(store.getState(), this.props) : {};
+      let dispatchProps = mapDispatchToProps ? mapDispatchToProps(store.dispatch, this.props) : {};
       this.setState({
         ...stateProps,
         ...dispatchProps,
