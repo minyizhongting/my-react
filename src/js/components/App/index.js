@@ -6,6 +6,7 @@ import './index.scss'
 
 // IndexLink会使用路径的精确匹配，链接到根路由/
 // 使用Link组件的onlyActiveOnIndex属性，也能达到同样效果
+// 实际上IndexLink就是对Link组件的onlyActiveOnIndex属性的包装
 
 export default class App extends Component {
   render() {
@@ -31,6 +32,9 @@ export default class App extends Component {
           </li>
           <li>
             <NavLink to="/counter">Counter</NavLink>
+          </li>
+          <li>
+            <NavLink to="/redirect">Redirect</NavLink>
           </li>
         </ul>
         {/* 渲染子组件 */}

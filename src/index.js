@@ -35,6 +35,11 @@ const store = createStore(
 
 console.log(store.getState());
 
+// Router组件的history属性，用来监听浏览器地址栏的变化
+// 设为hashHistory，路由将通过url的hash部分(#)切换
+// 设为browserHistory，则显示正常的路径，背后调用的是浏览器的history API，此时需要对服务器进行改造。否则直接向服务器请求某个子路由，会404。若开发服务器使用的是webpack-dev-server，加上--history-api-fallback参数即可
+// createMemoryHistory主要用于服务器渲染
+
 render(
   <Provider store={store}>
     <div className="app">
@@ -64,18 +69,13 @@ render(
 // store.subscribe(listener);
 
 
-// action发出后，若想过段时间再执行reducer，属于异步操作，只能在发送action的这个步骤进行改动。使用中间件，对store.dispatch进行改造，在发出action和执行reducer这两步之间，添加其他功能。
 
+// action发出后，若想过段时间再执行reducer，属于异步操作，只能在发送action的这个步骤进行改动。使用中间件，对store.dispatch进行改造，在发出action和执行reducer这两步之间，添加其他功能。
 
 // 异步操作至少送出两个action
 
 // Action Creator动作生成器
 // 普通的Action Creator返回一个对象，而此时需要返回一个函数，函数执行后，先发出一个action，进行异步操作，拿到结果后，再发出一个action.
-
-
-
-
-
 
 // action是由store.dispatch方法发送的，正常情况下，这个方法参数只能是对象，不能是函数。这时，就要使用中间件redux-thunk，改造store.dispatch，使其可以接受函数作为参数。
 

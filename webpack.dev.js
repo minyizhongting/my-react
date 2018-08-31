@@ -7,7 +7,7 @@ module.exports = {
   entry: [
     'babel-polyfill',
     'react-hot-loader/patch',
-    'webpack-hot-middleware/client?reload=true',
+    'webpack-hot-middleware/client?reload=true',  // 使用webpack-dev-server时，热替换需去掉此行代码
     path.resolve(__dirname, 'src/index.js')
   ],
   output: {
