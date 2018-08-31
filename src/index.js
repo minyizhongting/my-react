@@ -37,7 +37,7 @@ console.log(store.getState());
 
 // Router组件的history属性，用来监听浏览器地址栏的变化
 // 设为hashHistory，路由将通过url的hash部分(#)切换
-// 设为browserHistory，则显示正常的路径，背后调用的是浏览器的history API，此时需要对服务器进行改造。否则直接向服务器请求某个子路由，会404。若开发服务器使用的是webpack-dev-server，加上--history-api-fallback参数即可
+// 设为browserHistory，则显示正常的路径，背后调用的是浏览器的history API，此时需要对服务器进行改造。否则直接向服务器请求某个子路由，会404。若开发服务器使用的是webpack-dev-server，加上--history-api-fallback参数，让所有的404定位到index.html即可
 // createMemoryHistory主要用于服务器渲染
 
 render(

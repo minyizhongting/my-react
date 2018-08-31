@@ -6,7 +6,7 @@ module.exports = {
   mode: 'development',
   entry: [
     'babel-polyfill',
-    'react-hot-loader/patch',
+    'react-hot-loader/patch', // react模块更新时，保留state状态
     'webpack-hot-middleware/client?reload=true',  // 使用webpack-dev-server时，热替换需去掉此行代码
     path.resolve(__dirname, 'src/index.js')
   ],
@@ -39,7 +39,10 @@ module.exports = {
       },
       {
         test: /\.(gif|jpe?g|png)$/,
-        loader: 'url-loader'
+        loader: 'url-loader',
+        options: {
+          limit: 8192
+        }
       }
     ]
   },

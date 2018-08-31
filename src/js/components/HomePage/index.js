@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 // import { browserHistory } from 'react-router'
 import PropTypes from 'prop-types'
 
+import logoImage from '../../../logo.png'
+
 import {
   Card,
   CommonTitle,
@@ -35,6 +37,7 @@ class HomePage extends Component {
   render() {
     return (
       <Card>
+        <img width="200" src={logoImage} alt=""/>
         <CommonTitle title="Tab实例" />
         <Tab items={this.state.items} />
         <hr />
