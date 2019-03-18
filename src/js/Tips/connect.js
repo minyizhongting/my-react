@@ -67,4 +67,4 @@ export connect = (mapStateToProps, mapDispatchToProps) =>  (WrappedComponent) =>
 
 export default connect(mapStateToProps, mapDispatchToProps)(WrappedComponent)
 
-// 容器组件就是使用store.subscribe()从Redux state树中读取部分数据，并通过props来吧这些数据提供给要渲染的组件。
+// 容器组件就是使用store.subscribe()从Redux state树中读取部分数据，并通过props来把这些数据提供给要渲染的组件。
